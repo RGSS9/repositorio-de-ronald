@@ -1,0 +1,304 @@
+/* =====================================================================
+   Reflexão:
+   rem é baseado no tamanho da fonte raiz do documento e é indicado para
+   tipografia consistente. em depende da fonte do próprio elemento e é útil
+   para espaçamentos proporcionais. % acompanha o tamanho do elemento pai,
+   sendo adequado para layouts flexíveis e responsivos.
+   ===================================================================== */
+
+
+/* ---------- Base ---------- */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+
+/* ---------- Cabeçalho ---------- */
+
+.cabecalho {
+  background-color: #1565c0;
+  padding: 2rem;
+}
+
+
+/* Agrupamento de seletores: regras semelhantes foram unidas */
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+
+h1 {
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+
+.subtitulo {
+  color: #bbdefb;
+  font-size: 1rem;
+}
+
+
+/* ---------- Menu ---------- */
+
+
+/* Filho direto: somente a lista dentro do menu */
+.menu > ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+
+.menu li {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
+
+/* 
+   Descendente (espaço) seleciona qualquer nível abaixo.
+   Filho direto (>) seleciona apenas o primeiro nível.
+*/
+.menu a {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+
+/* Hover nos links do menu */
+.menu a:hover {
+  text-decoration: underline;
+}
+
+
+/* marcador antes dos links */
+.menu a::before {
+  content: "› ";
+}
+
+
+/* ---------- Seções ---------- */
+
+.secao {
+  padding: 2rem;
+  max-width: 60rem;
+  width: 90%;
+}
+
+
+h2 {
+  color: #1565c0;
+  font-size: 1.5rem;
+}
+
+
+/* parágrafo logo depois de um h2 */
+h2 + p {
+  margin-top: 1.5rem;
+}
+
+
+h3 {
+  color: #0d47a1;
+  font-size: 1.25rem;
+}
+
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+
+.destaque {
+  font-weight: bold;
+  color: #b71c1c;
+}
+
+
+/* 
+   Irmão geral (~):
+   seleciona todos os parágrafos depois do destaque
+   dentro da mesma seção.
+*/
+.destaque ~ p {
+  background-color: #eeeeee;
+}
+/* ---------- Grade de trilhas ---------- */
+
+.grade {
+  width: 100%;
+}
+
+
+.cartao {
+  display: inline-block;
+  width: 28%;
+  vertical-align: top;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  padding: 1em;
+  margin: 0.5em;
+}
+
+
+/* Zebra nos cartões */
+.cartao:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+
+.cartao:nth-child(even) {
+  background-color: #e3f2fd;
+}
+
+
+/* Todos os cartões, menos o último, recebem margem inferior */
+.cartao:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+
+/* Botão */
+
+.botao {
+  display: inline-block;
+  background-color: #1565c0;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+}
+
+
+/* Hover do botão */
+.botao:hover {
+  background-color: #0d47a1;
+}
+
+
+/*
+  Especificidade:
+  .botao possui especificidade menor que
+  .cartao .botao, pois o segundo possui duas classes.
+  Portanto, .cartao .botao vence o conflito.
+*/
+
+.cartao .botao {
+  border-radius: 0.3em;
+}
+
+
+
+/* ---------- Lista de programação ---------- */
+
+.lista-dias {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+
+/* Filho direto: somente os primeiros níveis da lista */
+.lista-dias > li {
+  font-weight: bold;
+}
+
+
+/* Primeiro e último item */
+.lista-dias > li:first-child {
+  color: #1565c0;
+}
+
+
+.lista-dias > li:last-child {
+  color: #b71c1c;
+}
+
+
+
+/* ---------- Formulário ---------- */
+
+.formulario {
+  max-width: 30rem;
+}
+
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-top: 1em;
+}
+
+
+/* Agrupamento: input e textarea possuem regras iguais */
+input,
+textarea {
+  display: block;
+  width: 90%;
+  font-size: 1rem;
+  padding: 0.5em;
+  margin-top: 0.25em;
+  border: 1px solid #999999;
+}
+
+
+/* Campos obrigatórios visualmente */
+label::after {
+  content: " *";
+  color: #b71c1c;
+}
+
+
+/* Seletor de atributo */
+input[type="email"] {
+  border: 2px solid #1565c0;
+}
+
+
+input[type="password"] {
+  border: 2px solid #b71c1c;
+}
+
+
+/* Foco nos campos */
+input:focus,
+textarea:focus {
+  outline: 2px solid #1565c0;
+}
+
+
+/* Botão do formulário */
+
+button {
+  font-size: 1rem;
+  color: white;
+  background-color: #1565c0;
+  padding: 0.5em 1.5em;
+  margin-top: 1em;
+  border: 0;
+}
+
+
+button:hover {
+  background-color: #0d47a1;
+}
+
+
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  background-color: #263238;
+  color: #cfd8dc;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+}
