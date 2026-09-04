@@ -1,14 +1,28 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #e8f0fe;
     font-family: Arial, sans-serif;
     color: #333;
     margin: 0;
 
-    /* Flexbox */
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+
+    /* Layout principal */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
+
+
+/* =========================
+   CABEÇALHO
+========================= */
 
 header {
     text-align: center;
@@ -25,40 +39,78 @@ header {
 
 h1 {
     font-size: 35px;
+    margin: 0;
 }
+
+
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
+
+main {
+    width: 100%;
+    padding: 30px 20px;
+
+    /* Grid */
+    display: grid;
+    place-items: start center;
+}
+
+
+/* =========================
+   FORMULÁRIO
+========================= */
 
 .formulario {
     background-color: white;
-    width: 400px;
-    margin: 30px auto;
+    width: min(100%, 450px);
     padding: 25px;
     border-radius: 15px;
     box-shadow: 2px 2px 10px gray;
 
-    /* Flexbox */
-    display: flex;
-    flex-direction: column;
+    /* Grid para organizar os elementos */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
 }
 
+
+/* =========================
+   CAMPOS
+========================= */
+
 label {
-    display: block;
     margin-top: 15px;
+    font-weight: bold;
 }
 
 .campo-texto {
-    width: 95%;
-    padding: 8px;
+    width: 100%;
+    padding: 10px;
     margin-top: 5px;
+
     border: 1px solid gray;
     border-radius: 8px;
+    font-size: 15px;
 }
 
 textarea {
-    width: 95%;
-    height: 80px;
-    border-radius: 8px;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
     margin-top: 5px;
+
+    border: 1px solid gray;
+    border-radius: 8px;
+
+    font-family: Arial, sans-serif;
+    resize: vertical;
 }
+
+
+/* =========================
+   OPÇÕES
+========================= */
 
 .opcoes {
     margin-top: 10px;
@@ -69,14 +121,36 @@ textarea {
     gap: 8px;
 }
 
+
+/* =========================
+   TERMOS
+========================= */
+
+.termos {
+    margin-top: 15px;
+
+    /* Flexbox */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
+
 .botao-principal {
     margin-top: 20px;
     width: 100%;
     padding: 12px;
+
     background-color: #4285f4;
     color: white;
+
     border: none;
     border-radius: 10px;
+
     cursor: pointer;
     font-size: 16px;
 
@@ -84,11 +158,18 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    transition: background-color 0.3s;
 }
 
 .botao-principal:hover {
     background-color: #2c5fb8;
 }
+
+
+/* =========================
+   RODAPÉ
+========================= */
 
 .rodape {
     text-align: center;
@@ -100,15 +181,28 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    margin-top: auto;
 }
 
-.termos {
-    margin-top: 15px;
 
-    /* Flexbox */
-    display: flex;
-    align-items: center;
-    gap: 8px;
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 500px) {
+
+    header {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .formulario {
+        padding: 20px;
+    }
 }
